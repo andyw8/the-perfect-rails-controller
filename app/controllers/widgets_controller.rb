@@ -1,11 +1,10 @@
 class WidgetsController < ApplicationController
-  before_action :set_widget, only: [:show, :edit, :update, :destroy]
-
   def index
     @widgets = Widget.all
   end
 
   def show
+    set_widget
   end
 
   def new
@@ -13,6 +12,7 @@ class WidgetsController < ApplicationController
   end
 
   def edit
+    set_widget
   end
 
   def create
@@ -26,6 +26,8 @@ class WidgetsController < ApplicationController
   end
 
   def update
+    set_widget
+
     if @widget.update(widget_params)
       redirect_to @widget, notice: 'Widget was successfully updated.'
     else
@@ -34,6 +36,7 @@ class WidgetsController < ApplicationController
   end
 
   def destroy
+    set_widget
     @widget.destroy
     redirect_to widgets_url, notice: 'Widget was successfully destroyed.'
   end
