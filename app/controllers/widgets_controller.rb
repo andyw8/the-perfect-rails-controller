@@ -39,11 +39,12 @@ class WidgetsController < ApplicationController
   end
 
   private
-    def set_widget
-      @widget = Widget.find(params[:id])
-    end
 
-    def widget_params
-      params.require(:widget).permit(:name)
-    end
+  def set_widget
+    @widget = Widget.find(params[:id])
+  end
+
+  def widget_params
+    params.require(:widget).permit(:name)
+  end
 end
