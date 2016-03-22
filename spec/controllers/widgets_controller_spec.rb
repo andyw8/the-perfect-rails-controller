@@ -37,7 +37,7 @@ RSpec.describe WidgetsController, type: :controller do
   let(:valid_session) { {} }
 
   describe "GET #index" do
-    it "assigns all widgets as @widgets" do
+    xit "assigns all widgets as @widgets" do
       widget = Widget.create! valid_attributes
       get :index, {}, valid_session
       expect(assigns(:widgets)).to eq([widget])
@@ -45,7 +45,7 @@ RSpec.describe WidgetsController, type: :controller do
   end
 
   describe "GET #show" do
-    it "assigns the requested widget as @widget" do
+    xit "assigns the requested widget as @widget" do
       widget = Widget.create! valid_attributes
       get :show, {:id => widget.to_param}, valid_session
       expect(assigns(:widget)).to eq(widget)
@@ -53,14 +53,14 @@ RSpec.describe WidgetsController, type: :controller do
   end
 
   describe "GET #new" do
-    it "assigns a new widget as @widget" do
+    xit "assigns a new widget as @widget" do
       get :new, {}, valid_session
       expect(assigns(:widget)).to be_a_new(Widget)
     end
   end
 
   describe "GET #edit" do
-    it "assigns the requested widget as @widget" do
+    xit "assigns the requested widget as @widget" do
       widget = Widget.create! valid_attributes
       get :edit, {:id => widget.to_param}, valid_session
       expect(assigns(:widget)).to eq(widget)
@@ -75,7 +75,7 @@ RSpec.describe WidgetsController, type: :controller do
         }.to change(Widget, :count).by(1)
       end
 
-      it "assigns a newly created widget as @widget" do
+      xit "assigns a newly created widget as @widget" do
         post :create, {:widget => valid_attributes}, valid_session
         expect(assigns(:widget)).to be_a(Widget)
         expect(assigns(:widget)).to be_persisted
@@ -88,7 +88,7 @@ RSpec.describe WidgetsController, type: :controller do
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved widget as @widget" do
+      xit "assigns a newly created but unsaved widget as @widget" do
         post :create, {:widget => invalid_attributes}, valid_session
         expect(assigns(:widget)).to be_a_new(Widget)
       end
@@ -113,7 +113,7 @@ RSpec.describe WidgetsController, type: :controller do
         expect(widget.name).to eq("MyString updated")
       end
 
-      it "assigns the requested widget as @widget" do
+      xit "assigns the requested widget as @widget" do
         widget = Widget.create! valid_attributes
         put :update, {:id => widget.to_param, :widget => valid_attributes}, valid_session
         expect(assigns(:widget)).to eq(widget)
@@ -127,7 +127,7 @@ RSpec.describe WidgetsController, type: :controller do
     end
 
     context "with invalid params" do
-      it "assigns the widget as @widget" do
+      xit "assigns the widget as @widget" do
         widget = Widget.create! valid_attributes
         put :update, {:id => widget.to_param, :widget => invalid_attributes}, valid_session
         expect(assigns(:widget)).to eq(widget)
