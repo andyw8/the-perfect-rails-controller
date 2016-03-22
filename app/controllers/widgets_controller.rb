@@ -1,18 +1,22 @@
 class WidgetsController < ApplicationController
   def index
     @widgets = Widget.all
+    render 'index', locals: { widgets: @widgets }
   end
 
   def show
     set_widget
+    render 'show', locals: { widget: @widget }
   end
 
   def new
     @widget = Widget.new
+    render 'new', locals: { widget: @widget }
   end
 
   def edit
     set_widget
+    render 'edit', locals: { widget: @widget }
   end
 
   def create
@@ -21,7 +25,7 @@ class WidgetsController < ApplicationController
     if @widget.save
       redirect_to @widget, notice: 'Widget was successfully created.'
     else
-      render :new
+      render 'new', locals: { widget: @widget }
     end
   end
 
@@ -31,7 +35,7 @@ class WidgetsController < ApplicationController
     if @widget.update(widget_params)
       redirect_to @widget, notice: 'Widget was successfully updated.'
     else
-      render :edit
+      render 'edit', locals: { widget: @widget }
     end
   end
 
