@@ -1,22 +1,18 @@
 class WidgetsController < ApplicationController
   def index
-    widgets = Widget.all
-    render 'index', locals: { widgets: widgets }
+    render 'index', locals: { widgets: Widget.all }
   end
 
   def show
-    widget = find_widget
-    render 'show', locals: { widget: widget }
+    render 'show', locals: { widget: find_widget }
   end
 
   def new
-    widget = Widget.new
-    render 'new', locals: { widget: widget }
+    render 'new', locals: { widget: Widget.new }
   end
 
   def edit
-    widget = find_widget
-    render 'edit', locals: { widget: widget }
+    render 'edit', locals: { widget: find_widget }
   end
 
   def create
