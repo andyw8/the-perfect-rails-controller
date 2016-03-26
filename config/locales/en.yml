@@ -17,3 +17,11 @@ en:
 
   titles:
     application: The perfect rails controller
+
+  widgets:
+    create:
+      notice: Widget was successfully created.
+    update:
+      notice: Widget was successfully updated.
+    destroy:
+      notice: Widget was successfully destroyed.

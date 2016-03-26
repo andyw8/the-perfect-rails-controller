@@ -23,7 +23,7 @@ class WidgetsController < ApplicationController
     widget = Widget.new(widget_params)
 
     if widget.save
-      redirect_to widget, notice: 'Widget was successfully created.'
+      redirect_to widget, notice: t('.notice')
     else
       render 'new', locals: { widget: widget }
     end
@@ -33,7 +33,7 @@ class WidgetsController < ApplicationController
     widget = find_widget
 
     if widget.update(widget_params)
-      redirect_to widget, notice: 'Widget was successfully updated.'
+      redirect_to widget, notice: t('.notice')
     else
       render 'edit', locals: { widget: widget }
     end
@@ -41,7 +41,7 @@ class WidgetsController < ApplicationController
 
   def destroy
     find_widget.destroy
-    redirect_to widgets_url, notice: 'Widget was successfully destroyed.'
+    redirect_to widgets_url, notice: t('.notice')
   end
 
   private
