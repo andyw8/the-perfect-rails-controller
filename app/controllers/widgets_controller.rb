@@ -1,6 +1,6 @@
 class WidgetsController < ApplicationController
   def index
-    render 'index', locals: { widgets: Widget.all }
+    render 'index', locals: { widgets: scoped_widgets }
   end
 
   def show
@@ -8,7 +8,7 @@ class WidgetsController < ApplicationController
   end
 
   def new
-    render 'new', locals: { widget: Widget.new }
+    render 'new', locals: { widget: scoped_widgets.new }
   end
 
   def edit
@@ -16,7 +16,7 @@ class WidgetsController < ApplicationController
   end
 
   def create
-    widget = Widget.new(widget_params)
+    widget = scoped_widgets.new(widget_params)
 
     if widget.save
       redirect_to widget, notice: t('.notice')
@@ -43,7 +43,11 @@ class WidgetsController < ApplicationController
   private
 
   def find_widget
-    Widget.find(params[:id])
+    scoped_widgets.find(params[:id])
+  end
+
+  def scoped_widgets
+    Widget.all
   end
 
   def widget_params
